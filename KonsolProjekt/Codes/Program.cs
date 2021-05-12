@@ -40,16 +40,13 @@ namespace KonsolProjekt
 
             Console.WriteLine("\n Records eksempel ");
             Console.WriteLine("------------------------- \n");
-
-            //initialize records type with parameters
-            KontaktInfo kontaktInfo= new KontaktInfo(elevInfo.Fornavn, elevInfo.Efternavn, elevInfo.Telefonnr, elevInfo.Fødelsesdato, elevInfo.Køn);           
-            
-            //print records data
-            Console.WriteLine(kontaktInfo);
+            string navn = elevKlasse.GetElevKontaktInfo().name;
+            string tlf = elevKlasse.GetElevKontaktInfo().telefonNr;
+            Console.WriteLine($"{ navn}, { tlf}");
 
 
 
-            Console.WriteLine("press any key to exit");
+            Console.WriteLine("\n\npress any key to exit");
             Console.ReadLine();
         }
     }

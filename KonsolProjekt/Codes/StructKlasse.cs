@@ -22,9 +22,5 @@ namespace KonsolProjekt
         }
     }
 
-    // Record type Klasse
-    public record KontaktInfo(string fornavn, string efternavn, string telefon, DateTime fødselsdato, char køn)
-    {
-        
-    }
+    
 }

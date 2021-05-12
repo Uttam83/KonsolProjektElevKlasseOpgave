@@ -6,6 +6,8 @@ namespace KonsolProjekt
 {
     public class H1ElevKlasse
     {
+        public record KontaktInfo(string name, string telefonNr);
+
         ElevModel model;
         public H1ElevKlasse()
         {
@@ -36,5 +38,13 @@ namespace KonsolProjekt
             return elevInfo;
         }
 
+        public KontaktInfo GetElevKontaktInfo()
+        {
+            string fullName = model.Fornavn + " " + model.Efternavn;
+            string tlf = model.Telefonnr;
+
+            KontaktInfo kontt = new KontaktInfo(fullName, tlf);
+            return kontt;
+        }
     }
 }
