@@ -8,10 +8,10 @@ namespace KonsolProjekt
     {
         public record KontaktInfo(string name, string telefonNr);
 
-        ElevModel model;
+        Bil model;
         public H1ElevKlasse()
         {
-            model = new ElevModel()
+            model = new Bil()
             {
                 Fornavn = "John",
                 Efternavn="Smith",
@@ -23,9 +23,9 @@ namespace KonsolProjekt
             };
         }
 
-        public ElevModel GetElevInfo()
+        public Bil GetElevInfo()
         {
-            var elevInfo = new ElevModel();
+            var elevInfo = new Bil();
             try
             {
                 elevInfo = model;
