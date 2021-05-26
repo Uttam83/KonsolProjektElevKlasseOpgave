@@ -42,7 +42,7 @@ namespace KonsolProjekt
             Console.WriteLine("------------------------- \n");
             string navn = elevKlasse.GetElevKontaktInfo().name;
             string tlf = elevKlasse.GetElevKontaktInfo().telefonNr;
-            Console.WriteLine($"{ navn}, { tlf}");
+            Console.WriteLine("Name: {0} \nTelephoneno: {1}", navn, tlf);
 
 
 
