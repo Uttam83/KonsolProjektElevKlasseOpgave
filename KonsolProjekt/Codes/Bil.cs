@@ -1,12 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oopOPGAVE1.Codes
+namespace OOPOPGAVE2.Codes
 {
-    class Bil
+    sealed class Bil:Motorkøretøj
     {
         #region Property Fields
 
@@ -23,30 +24,25 @@ namespace oopOPGAVE1.Codes
         }
         #endregion
 
-
-
         public string Mærke { get; set; }
-
-        public int? Alder { get; set; }
-
-
 
         public Bil(string numberplate, string brand)
         {
             SetNrPlade(numberplate);
-
+            SetEjerInfo("Uttam U", 20202020);
             Mærke = brand;
-
         }
 
-        public Bil(string numberplate, string brand, DateTime yearofRelease)
+        public Bil(string numberplate, string brand, DateTime yearofRelease) : base(yearofRelease)
         {
             SetNrPlade(numberplate);
-            Mærke = brand;
+            SetEjerInfo("Umesh U",30303030);
+            Mærke = brand;           
+        }
 
-            AgeCounter ac = new(yearofRelease);
-            Alder = ac.Alder;
-
+        public override void SetEjerInfo(string navn, int tlf)
+        {
+            KontaktInfo = new EjerensKontaktInfo(navn, tlf);
         }
 
     }

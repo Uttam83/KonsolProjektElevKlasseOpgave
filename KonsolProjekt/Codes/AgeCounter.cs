@@ -4,18 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oopOPGAVE1.Codes
+namespace OOPOPGAVE2.Codes
 {
-
-
     struct AgeCounter
     {
-
         public int? Alder { get; set; }
 
-        public AgeCounter(DateTime yearofRelease)
+        public AgeCounter(DateTime yearofRelease):this()
         {
-            Alder = null;
             Alder = GetAge(yearofRelease);
         }
 
