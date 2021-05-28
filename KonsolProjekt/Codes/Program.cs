@@ -1,53 +1,65 @@
-﻿using System;
+﻿using OOPOPGAVE3.Codes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace KonsolProjekt
+namespace OOPOPGAVE3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Initialization of H1ElevKlasse class
-            H1ElevKlasse elevKlasse = new H1ElevKlasse();
+            // lists
+            List<Bil> biler = new List<Bil>();
 
-            //Call the method with the elevKlasse object
-            var elevInfo = elevKlasse.GetElevInfo();
-
-            Console.WriteLine("Klasse eksempel \n");
-            Console.WriteLine("-------------------------");
-
-
-            Console.WriteLine(
-                "Fornavn: "+ elevInfo.Fornavn +
-                "\n Efternavn: " + elevInfo.Efternavn +
-                "\n Telefon: " + elevInfo.Telefonnr +
-                "\n Anden H1 Fag: " + elevInfo.AlleH1Fag[1]+
-                "\n H1Afslutdato: " + elevInfo.H1Afslutdato
-                );
-
-            Console.WriteLine("\nStruct eksempel ");
-            Console.WriteLine("------------------------- \n");
+            Bil bil = new("AB20200", "Audi", new DateTime(2017, 12, 12));
+            Console.WriteLine($"Mærke: {bil.Mærke}, nummerplade nr. {bil.GetNummerPlade()}");
+            if (bil.ErrorMsg != null)
+            {
+                //Console.WriteLine($"Bil {bil.GetNummerPlade()} {bil.ErrorMsg}.");
+            }
+            biler.Add(bil);
 
 
-            //Initialize struct with a parameter
-            StructKlasse udregningStruct = new StructKlasse(elevInfo.H1Afslutdato);
+            Bil bil2 = new("AB20200", "Audi", new DateTime(2015, 8, 1), new DateTime(2018, 01, 01));
+            //Console.WriteLine($"\n\nMærke: {bil2.Mærke}, nummerplade nr. {bil2.GetNummerPlade()}, årgang: {bil2.Årgang.ToString("dd.MM.yyyy")}, bilens alder: {bil2.Alder} år gammel.");
+            if (bil2.ErrorMsg != null)
+            {
+                Console.WriteLine($"Bil {bil2.GetNummerPlade()}{bil2.ErrorMsg}.");
+            }
+            biler.Add(bil2);
 
-            //call method with the struct object
-            var datoTilbage = udregningStruct.BeregnAfslutDato();
-            Console.WriteLine("Education will be Finished in:  {0} days",datoTilbage);
+
+            Bil bil3 = new("XY20200", "Toyota", new DateTime(2016, 01, 01));
+            Console.WriteLine($"\n\nMærke: {bil3.Mærke}, nummerplade nr. {bil3.GetNummerPlade()}");
+            if (bil.ErrorMsg != null)
+            {
+                Console.WriteLine($"Bil {bil3.GetNummerPlade()} {bil3.ErrorMsg}.");
+            }
+            biler.Add(bil3);
+
+
+
+            // Opretelse en søgning i listen og returner bilen med mærke Audi.
+
+            Bil result = biler.FirstOrDefault(b => b.Mærke == "Audi");
+
+            result.GetNummerPlade();
+
+            Console.WriteLine($"\n\nDin Søgning (Mærke):  {result.Mærke}  \n\t   Nummerpladen er: {result.GetNummerPlade()}");
+
+
+
+
+       
 
            
 
+           
 
-            Console.WriteLine("\n Records eksempel ");
-            Console.WriteLine("------------------------- \n");
-            string navn = elevKlasse.GetElevKontaktInfo().name;
-            string tlf = elevKlasse.GetElevKontaktInfo().telefonNr;
-            Console.WriteLine("Name: {0} \nTelephoneno: {1}", navn, tlf);
+            
 
 
-
-            Console.WriteLine("\n\npress any key to exit");
-            Console.ReadLine();
         }
     }
 }
