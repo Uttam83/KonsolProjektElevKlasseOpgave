@@ -42,6 +42,7 @@ namespace OOPOPGAVE3.Codes
             SetNummerPlade(nummerPlade);
             SetEjerInfo("Umesh M", 30303030);
             Mærke = brand;
+            Årgang = årgang;
             SidstSynet = sidstSynet;
             TjekkeForSynsDato();
         }

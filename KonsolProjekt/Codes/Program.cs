@@ -41,6 +41,7 @@ namespace OOPOPGAVE3
 
 
             // Opretelse en søgning i listen og returner bilen med mærke Audi.
+            // Lamda expression
 
             Bil result = biler.FirstOrDefault(b => b.Mærke == "Audi");
 
